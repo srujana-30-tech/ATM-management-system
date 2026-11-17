@@ -1,76 +1,77 @@
-# ATM Management System
+# 🏧 ATM Management System
 
-## Description
+## 📌 Description
 
-This project is a simple ATM Management System developed using Python. It demonstrates basic Object-Oriented Programming (OOP) concepts by simulating common ATM operations such as PIN login, withdrawal, deposit, balance enquiry, and mini statement.
+The **ATM Management System** is a simple Python-based project that simulates the basic functionalities of an Automated Teller Machine (ATM).
 
-The program runs in the command line and allows the user to interact with the ATM through a menu-driven interface.
+The project is developed using **Object-Oriented Programming (OOP)** concepts. It allows users to securely log in using a PIN and perform common banking operations such as withdrawing money, depositing money, checking account balance, and viewing transaction history.
 
-## Features
+The application runs through a **Command Line Interface (CLI)** with a menu-driven approach, making it easy for users to interact with the system.
 
-* PIN-based login
-* Withdraw money
-* Deposit money
-* Check available balance
-* View mini statement
-* Exit the ATM system
-* Displays messages for successful and unsuccessful operations
-* Prevents withdrawal when the available balance is insufficient
+## ✨ Features
 
-## Technologies Used
+- PIN-based login authentication
+- Withdraw money from the account
+- Deposit money into the account
+- Check available account balance
+- View mini statement and transaction history
+- Exit the ATM system
+- Displays success and error messages
+- Prevents withdrawals when sufficient balance is unavailable
 
-* Python 3
-* Object-Oriented Programming (OOP)
-* Command Line Interface (CLI)
+## 🛠️ Technologies Used
 
-## OOP Concepts Used
+- **Programming Language:** Python 3
+- **Concepts:** Object-Oriented Programming (OOP)
+- **Interface:** Command Line Interface (CLI)
+
+## 🧠 OOP Concepts Used
 
 ### 1. Class
-
-The program uses an `ATM` class to represent the ATM system.
+The program uses an `ATM` class to represent the ATM system and group related functionalities together.
 
 ### 2. Constructor
-
-The `__init__()` method initializes the ATM's PIN, balance, and transaction statement.
+The `__init__()` method initializes the ATM's PIN, account balance, and transaction statement when an object is created.
 
 ### 3. Encapsulation
+The program uses private attributes:
 
-The variables `__pin`, `__balance`, and `__statement` are private attributes. The double underscore `__` provides name mangling and helps restrict direct access to these attributes from outside the class.
+- `__pin`
+- `__balance`
+- `__statement`
+
+The double underscore (`__`) provides name mangling and helps restrict direct access to these attributes from outside the class.
 
 ### 4. Methods
+Different ATM operations are implemented using separate methods:
 
-Different ATM operations are implemented using methods:
+| Method | Description |
+|---|---|
+| `login()` | Verifies the user's PIN |
+| `withdraw()` | Withdraws money from the account |
+| `deposit()` | Deposits money into the account |
+| `balance_enquiry()` | Displays the available balance |
+| `mini_statement()` | Displays transaction history |
 
-* `login()` – Handles PIN verification
-* `withdraw()` – Handles money withdrawal
-* `deposit()` – Handles money deposit
-* `balance_enquiry()` – Displays available balance
-* `mini_statement()` – Displays transaction history
+## 💳 Initial Values
 
-## Initial Values
+The ATM system starts with the following default values:
 
-The ATM starts with:
+| Attribute | Initial Value |
+|---|---|
+| PIN | `1234` |
+| Initial Balance | ₹10,000 |
 
-* PIN: `1234`
-* Initial Balance: `10000`
+**Note:** The PIN is hard-coded for demonstration purposes. This implementation is intended only for learning and should not be used in a real banking application.
 
-Note: The PIN is hard-coded for demonstration purposes and should not be used this way in a real banking application.
-
-## How the Program Works
+## ⚙️ How the Program Works
 
 ### Step 1: Login
 
-The user is asked to enter the ATM PIN.
-
-If the entered PIN is correct, the program displays:
-
-`Login Successful`
-
-If the PIN is incorrect, the program displays:
-
-`Wrong PIN`
-
-The ATM menu is displayed only after successful login.
+- The user is asked to enter the ATM PIN.
+- If the entered PIN is correct, the system displays `Login Successful`.
+- If the PIN is incorrect, the system displays `Wrong PIN`.
+- The ATM menu is accessible only after successful authentication.
 
 ### Step 2: ATM Menu
 
@@ -84,72 +85,105 @@ After successful login, the following menu is displayed:
 
 The user can select an operation by entering the corresponding number.
 
-## Operations
+## 🔄 ATM Operations
 
-### 1. Withdraw
+### 1. Withdraw Money
 
-The user enters the amount they want to withdraw.
+- The user enters the amount to withdraw.
+- The system checks whether sufficient balance is available.
+- If sufficient balance exists, the amount is deducted.
+- The transaction is recorded in the mini statement.
 
-If sufficient balance is available, the amount is deducted from the account and the transaction is added to the mini statement.
+**Example:**
+```text
+Enter amount to withdraw: 2000
+Withdrawal Successful
+```
 
-Example:
+If sufficient balance is unavailable:
 
-`Enter amount to withdraw: 2000`
+```text
+Insufficient Balance
+```
 
-`Withdrawal Successful`
+### 2. Deposit Money
 
-If the balance is insufficient, the program displays:
+- The user enters the amount to deposit.
+- The amount is added to the current account balance.
+- The transaction is recorded in the mini statement.
 
-`Insufficient Balance`
-
-### 2. Deposit
-
-The user can deposit money into the account.
-
-Example:
-
-`Enter amount to deposit: 5000`
-
-`Deposit Successful`
-
-The deposited amount is added to the current balance and recorded in the statement.
+**Example:**
+```text
+Enter amount to deposit: 5000
+Deposit Successful
+```
 
 ### 3. Balance Enquiry
 
-This option displays the current available balance.
+Displays the current available account balance.
 
-Example:
-
-`Available Balance: 13000`
+**Example:**
+```text
+Available Balance: 13000
+```
 
 ### 4. Mini Statement
 
-This option displays the transaction history of withdrawals and deposits.
+Displays the transaction history, including deposits and withdrawals.
 
-Example:
+**Example:**
+```text
+Mini Statement
 
-`Mini Statement`
-
-`Withdraw: 2000`
-
-`Deposit: 5000`
-
-`Withdraw: 1000`
+Withdraw: 2000
+Deposit: 5000
+Withdraw: 1000
+```
 
 ### 5. Exit
 
-Selecting option `5` exits the ATM program.
+Selecting option `5` terminates the ATM program.
 
-The program displays:
+**Output:**
+```text
+Thank You!
+```
 
-`Thank You!`
+## 🔀 Program Flow
 
-## Program Flow
+```text
+          START
+            |
+     Create ATM Object
+            |
+        Enter PIN
+            |
+       Verify PIN
+            |
+      Login Successful?
+         /       \
+       No         Yes
+       |           |
+   Wrong PIN   Display Menu
+                   |
+             Select Operation
+                   |
+       +-----------+-----------+
+       |           |           |
+    Withdraw    Deposit    Balance Enquiry
+       |           |           |
+       +-----------+-----------+
+                   |
+             Mini Statement
+                   |
+                 Exit
+                   |
+                  END
+```
 
-Start → Create ATM Object → Enter PIN → Verify PIN → Display ATM Menu → Select Operation → Withdraw / Deposit / Balance Enquiry / Mini Statement / Exit → End
+## 💻 Example Output
 
-## Example Output
-
+```text
 Enter PIN: 1234
 
 Login Successful
@@ -197,93 +231,109 @@ Withdraw: 2000
 Enter your choice: 5
 
 Thank You!
+```
 
-## Project Structure
+## 📂 Project Structure
 
+```text
 ATM-Management-System/
 │
 ├── ATM.py
+│
 └── README.md
+```
 
-## How to Run
+## 🚀 How to Run the Project
 
-### 1. Install Python
+### Step 1: Install Python
 
 Make sure Python 3 is installed on your computer.
 
-Check the Python version using:
+Check the installed Python version:
 
-`python --version`
+```bash
+python --version
+```
 
-### 2. Clone the Repository
+### Step 2: Clone the Repository
 
-If the project is hosted on GitHub:
+Clone the project repository from GitHub:
 
-`git clone <repository-url>`
+```bash
+git clone <repository-url>
+```
 
-### 3. Open the Project Folder
+### Step 3: Navigate to the Project Folder
 
-`cd ATM-Management-System`
+```bash
+cd ATM-Management-System
+```
 
-### 4. Run the Program
+### Step 4: Run the Program
 
-`python ATM.py`
+Execute the following command:
 
-### 5. Enter the PIN
+```bash
+python ATM.py
+```
 
-Use the default PIN:
+### Step 5: Login to the ATM
 
-`1234`
+Enter the default PIN:
 
-## Limitations
+```text
+1234
+```
 
-This project is created for learning and demonstration purposes.
+You can now access the ATM operations through the menu.
 
-* The PIN is hard-coded.
-* The account balance is stored only while the program is running.
-* No database is used.
-* There is no real banking or payment integration.
-* Negative or invalid transaction amounts are not specifically validated.
-* Only one ATM account is simulated.
-* Transaction history is not permanently stored.
+## ⚠️ Limitations
 
-## Future Enhancements
+This project is developed for educational and demonstration purposes.
 
-The project can be improved by adding:
+- The PIN is hard-coded in the program.
+- The account balance is stored only while the program is running.
+- No database is used for storing account information.
+- No real banking or payment integration is available.
+- Only one ATM account is simulated.
+- Transaction history is not permanently stored.
+- Input validation for negative or invalid transaction amounts may be limited.
 
-* Multiple user accounts
-* Secure PIN storage
-* PIN change functionality
-* PIN attempt limit
-* Database integration
-* Account number support
-* Money transfer functionality
-* Transaction date and time
-* Better input validation
-* Permanent transaction history
-* Receipt generation
-* Graphical User Interface (GUI)
+## 🔮 Future Enhancements
 
-## Learning Outcomes
+The project can be further improved by implementing:
+
+- Multiple user accounts
+- Secure PIN storage
+- PIN change functionality
+- Maximum PIN login attempts
+- Database integration
+- Account number support
+- Money transfer functionality
+- Transaction date and time
+- Improved input validation
+- Permanent transaction history
+- Receipt generation
+- Graphical User Interface (GUI)
+
+## 🎯 Learning Outcomes
 
 Through this project, the following concepts can be understood:
 
-* Python classes and objects
-* Constructors
-* Encapsulation
-* Private attributes
-* Methods
-* Conditional statements
-* Loops
-* Lists
-* User input
-* Menu-driven programming
-* Basic transaction management
+- Python classes and objects
+- Constructors and initialization
+- Encapsulation and private attributes
+- Methods and functions
+- Conditional statements
+- Loops and iterations
+- Lists and data storage
+- User input handling
+- Menu-driven programming
+- Basic transaction management
+- Practical implementation of OOP concepts
 
-## Conclusion
+## 📝 Conclusion
 
-The ATM Management System is a beginner-friendly Python project that demonstrates how Object-Oriented Programming can be used to build a simple real-world application. It provides basic ATM functionality such as authentication, withdrawal, deposit, balance enquiry, and transaction history through a command-line interface.
+The **ATM Management System** is a beginner-friendly Python project that demonstrates how Object-Oriented Programming can be used to develop a simple banking application.
 
-## Author
-
-Developed as a Python/OOP academic project.
+It provides practical experience with classes, objects, encapsulation, constructors, and methods while simulating essential ATM operations. This project helps strengthen Python programming fundamentals and provides a foundation for developing more advanced banking management applications.
